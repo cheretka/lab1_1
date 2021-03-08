@@ -9,6 +9,15 @@ public class Product {
     private Money price;
     private String name;
     private String type;
+    private Date snapshotDate;
+
+    public Product(String id, Money price, String name, String type, Date snapshotDate) {
+        this.id = id;
+        this.price = price;
+        this.name = name;
+        this.type = type;
+        this.snapshotDate = snapshotDate;
+    }
 
     public String getId() {
         return id;
@@ -24,5 +33,9 @@ public class Product {
 
     public String getType() {
         return type;
+    }
+
+    public Date getSnapshotDate() {
+        return snapshotDate;
     }
 }

@@ -18,34 +18,28 @@ import java.util.Date;
 public class OfferItem {
 
     private Product product;
-    private Date productSnapshotDate;
     private int quantity;
     private Money totalCost;
     private Discount discount;
 
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType, int quantity) {
-        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+    public OfferItem(Product product, int quantity,  null) {
+        this(product, quantity, null);
     }
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType, int quantity, BigDecimal discount, String discountCause) {
-        this.productId = productId;
-        this.productPrice = productPrice;
-        this.productName = productName;
-        this.productSnapshotDate = productSnapshotDate;
-        this.productType = productType;
-
+    public OfferItem(Product product, int quantity, Discount discount) {
+        this.product = product;
         this.quantity = quantity;
         this.discount = discount;
-        this.discountCause = discountCause;
 
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
-            discountValue = discountValue.subtract(discount);
+            discountValue = discountValue.subtract(discount.getDiscount());
         }
 
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
+        this.totalCost.setAmount( product.getPrice().getAmount().multiply(new BigDecimal(quantity)).subtract(discountValue)  );
     }
+
 
     public String getProductId() {
         return product.getId();
@@ -60,7 +54,7 @@ public class OfferItem {
     }
 
     public Date getProductSnapshotDate() {
-        return productSnapshotDate;
+        return product.getSnapshotDate();
     }
 
     public String getProductType() {
@@ -87,6 +81,7 @@ public class OfferItem {
         return quantity;
     }
 
+    
     @Override
     public int hashCode() {
         final int prime = 31;
