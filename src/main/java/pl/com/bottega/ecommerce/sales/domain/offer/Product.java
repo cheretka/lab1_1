@@ -62,4 +62,38 @@ public class Product {
         result = prime * result + ( type == null ? 0 : type.hashCode());
         return result;
     }
+
+
+    public boolean sameAs(Product other){
+        if (name == null) {
+            if (other.getName() != null) {
+                return false;
+            }
+        } else if (!name.equals(other.getName())) {
+            return false;
+        }
+
+        if (price == null) {
+            if (other.getPrice() != null) {
+                return false;
+            }
+        } else if (!price.equals(other.getPrice())) {
+            return false;
+        }
+
+        if (id == null) {
+            if (other.getId() != null) {
+                return false;
+            }
+        } else if (!id.equals(other.getId())) {
+            return false;
+        }
+
+        if (type != other.getType()) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
