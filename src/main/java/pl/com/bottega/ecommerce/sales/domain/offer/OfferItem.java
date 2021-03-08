@@ -17,27 +17,12 @@ import java.util.Date;
 
 public class OfferItem {
 
-    // product
-    private String productId;
-
-    private BigDecimal productPrice;
-
-    private String productName;
-
+    private Product product;
     private Date productSnapshotDate;
-
-    private String productType;
-
     private int quantity;
+    private Money totalCost;
+    private Discount discount;
 
-    private BigDecimal totalCost;
-
-    private String currency;
-
-    // discount
-    private String discountCause;
-
-    private BigDecimal discount;
 
     public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
             String productType, int quantity) {
@@ -45,6 +30,7 @@ public class OfferItem {
     }
 
     public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
+
             String productType, int quantity, BigDecimal discount, String discountCause) {
         this.productId = productId;
         this.productPrice = productPrice;
