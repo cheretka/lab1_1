@@ -24,14 +24,11 @@ public class OfferItem {
     private Discount discount;
 
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity) {
+    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType, int quantity) {
         this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
     }
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-
-            String productType, int quantity, BigDecimal discount, String discountCause) {
+    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType, int quantity, BigDecimal discount, String discountCause) {
         this.productId = productId;
         this.productPrice = productPrice;
         this.productName = productName;
@@ -51,15 +48,15 @@ public class OfferItem {
     }
 
     public String getProductId() {
-        return productId;
+        return product.getId();
     }
 
     public BigDecimal getProductPrice() {
-        return productPrice;
+        return product.getPrice().getAmount();
     }
 
     public String getProductName() {
-        return productName;
+        return product.getName();
     }
 
     public Date getProductSnapshotDate() {
@@ -67,23 +64,23 @@ public class OfferItem {
     }
 
     public String getProductType() {
-        return productType;
+        return product.getType();
     }
 
     public BigDecimal getTotalCost() {
-        return totalCost;
+        return totalCost.getAmount();
     }
 
     public String getTotalCostCurrency() {
-        return currency;
+        return totalCost.getCurrency();
     }
 
     public BigDecimal getDiscount() {
-        return discount;
+        return discount.getDiscount();
     }
 
     public String getDiscountCause() {
-        return discountCause;
+        return getDiscountCause();
     }
 
     public int getQuantity() {

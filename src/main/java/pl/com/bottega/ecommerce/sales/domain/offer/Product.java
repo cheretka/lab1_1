@@ -10,4 +10,19 @@ public class Product {
     private String name;
     private String type;
 
+    public String getId() {
+        return id;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
 }
