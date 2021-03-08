@@ -110,18 +110,19 @@ public class OfferItem {
         if(!product.sameAs(other.getProduct()))
             return false;
 
-        if (quantity != other.quantity) {
+        if (quantity != other.getQuantity()) {
             return false;
         }
 
+
         BigDecimal max;
         BigDecimal min;
-        if (totalCost.compareTo(other.totalCost) > 0) {
-            max = totalCost;
-            min = other.totalCost;
+        if (totalCost.compareTo(other.getTotalCost()) > 0) {
+            max = totalCost.getAmount();
+            min = other.getTotalCost().getAmount();
         } else {
-            max = other.totalCost;
-            min = totalCost;
+            max = other.getTotalCost().getAmount();
+            min = totalCost.getAmount();
         }
 
         BigDecimal difference = max.subtract(min);
