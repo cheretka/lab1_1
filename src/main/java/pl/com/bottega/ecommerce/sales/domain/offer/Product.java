@@ -7,9 +7,13 @@ import java.util.Objects;
 public class Product {
 
     private String id;
+
     private Money price;
+
     private String name;
+    
     private String type;
+
     private Date snapshotDate;
 
     public Product(String id, Money price, String name, String type, Date snapshotDate) {

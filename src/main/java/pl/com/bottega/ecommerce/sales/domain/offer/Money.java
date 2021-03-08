@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Money {
+
     private BigDecimal amount;
+
     private String currency;
 
     public BigDecimal getAmount() {

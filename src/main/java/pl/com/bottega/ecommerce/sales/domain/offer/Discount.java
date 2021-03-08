@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Discount {
+
     private String discountCause;
+
     private BigDecimal discount;
 
     public String getDiscountCause() {
