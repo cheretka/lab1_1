@@ -23,7 +23,7 @@ public class OfferItem {
     private Discount discount;
 
 
-    public OfferItem(Product product, int quantity,  null) {
+    public OfferItem(Product product, int quantity) {
         this(product, quantity, null);
     }
 
@@ -81,16 +81,13 @@ public class OfferItem {
         return quantity;
     }
 
-    
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + (discount == null ? 0 : discount.hashCode());
-        result = prime * result + (productName == null ? 0 : productName.hashCode());
-        result = prime * result + (productPrice == null ? 0 : productPrice.hashCode());
-        result = prime * result + (productId == null ? 0 : productId.hashCode());
-        result = prime * result + (productType == null ? 0 : productType.hashCode());
+        result = prime * result + (product == null ? 0 : product.hashCode());
         result = prime * result + quantity;
         result = prime * result + (totalCost == null ? 0 : totalCost.hashCode());
         return result;
@@ -108,6 +105,7 @@ public class OfferItem {
             return false;
         }
         OfferItem other = (OfferItem) obj;
+
         if (discount == null) {
             if (other.discount != null) {
                 return false;
@@ -115,33 +113,19 @@ public class OfferItem {
         } else if (!discount.equals(other.discount)) {
             return false;
         }
-        if (productName == null) {
-            if (other.productName != null) {
+
+        if (product == null) {
+            if (other.product != null) {
                 return false;
             }
-        } else if (!productName.equals(other.productName)) {
+        } else if (!product.equals(other.product)) {
             return false;
         }
-        if (productPrice == null) {
-            if (other.productPrice != null) {
-                return false;
-            }
-        } else if (!productPrice.equals(other.productPrice)) {
-            return false;
-        }
-        if (productId == null) {
-            if (other.productId != null) {
-                return false;
-            }
-        } else if (!productId.equals(other.productId)) {
-            return false;
-        }
-        if (productType != other.productType) {
-            return false;
-        }
+
         if (quantity != other.quantity) {
             return false;
         }
+
         if (totalCost == null) {
             if (other.totalCost != null) {
                 return false;
@@ -149,8 +133,10 @@ public class OfferItem {
         } else if (!totalCost.equals(other.totalCost)) {
             return false;
         }
+
         return true;
     }
+
 
     /**
      *
